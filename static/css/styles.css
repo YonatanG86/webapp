@@ -1,0 +1,211 @@
+/* General Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Container for all content */
+.container {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    position: relative; /* Positioning for autocomplete suggestions */
+}
+
+/* Header Styling */
+h1 {
+    font-size: 2.5em;
+    color: #34495e;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+}
+
+/* Search Input and Suggestions */
+#search {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* align-items: center;*/
+    width: 85%; /* 65% of the container width */
+    /*border: 1px solid #ccc; */
+    padding: 10px 0px 10px 10px; /* Add some padding for spacing */
+    border-radius: 6px; /* Add some border radius if you like */
+     /* Optional: Add some shadow for better visibility */
+}
+
+#button{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /*border: 1px solid #ccc; */
+    padding-top: 10px
+}
+
+input[type="text"] {
+    padding: 12px;
+    width: 90%; /* Full width of the search container */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+/* Button Styling */
+button {
+    padding: 12px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px; /* Rounded corners on the right side */
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    height: 44px; /* Ensure height matches the input field */
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Autocomplete Suggestions Styling */
+#suggestions {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #fff;
+    width: 65%; /* Matches the width of the search container */
+    z-index: 1000;
+    margin-top: 0px; /* Adds a small gap between the input field and the suggestions */
+    padding: 12px;
+    width: 90%;
+    list-style-type: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+}
+
+#suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Weather Information Styling */
+.weather-data {
+    margin-top: 30px;
+    width: 100%; /* Full width for the weather data container */
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
+}
+
+/* Custom Scrollbar Styling */
+.weather-data::-webkit-scrollbar {
+    height: 12px; /* Adjust scrollbar height */
+}
+
+.weather-data::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, #4facfe, #00f2fe); /* Background matches the page */
+    border-radius: 10px;
+}
+
+.weather-data::-webkit-scrollbar-thumb {
+    background-color: #3498db; /* Scrollbar color */
+    border-radius: 10px;
+    border: 2px solid #4facfe; /* Matching border */
+}
+
+.weather-data::-webkit-scrollbar-thumb:hover {
+    background-color: #2980b9; /* Darker on hover */
+}
+
+.weather-data h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.weather-days {
+    display: flex;
+    gap: 15px; /* Gap between weather cards */
+    flex-wrap: nowrap; /* No wrapping, keep all items in one line */
+    margin-bottom: 15px;
+}
+
+.weather-day {
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    min-width: 200px; /* Each card will have a minimum width */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.weather-day:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.weather-day p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+    .weather-day {
+        min-width: 150px; /* Adjust width on smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .weather-day {
+        min-width: 120px; /* Further adjust for very small screens */
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .weather-day p {
+        font-size: 0.9em;
+    }
+}

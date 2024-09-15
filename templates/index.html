@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Forecast</h1>
+
+        <!-- Display flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="post">
+            <div id="search">
+                <input type="text" id="location" name="location" placeholder="Enter city or country" required autocomplete="off" aria-autocomplete="list" aria-controls="suggestions">
+            </div>
+            <div id="button">
+                <button type="submit">Get Weather</button>
+            </div>
+        </form>
+
+        {% if weather_data %}
+            <div class="weather-data">
+                <h2>Weather in {{ location_name }}</h2>
+                <div class="weather-days">
+                    {% for day in weather_data %}
+                        <div class="weather-day">
+                            <p>{{ day.date }}</p>
+                            <p>{{ day.max_temp }} °C - {{ day.min_temp }} °C</p>
+                            <p><img src="{{ day.condition_icon }}" alt="{{ day.condition }}"></p>
+                            <p>Humidity: {{ day.humidity }}%</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% elif location_name %}
+            <p>Location not found. Please try another city or country.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
