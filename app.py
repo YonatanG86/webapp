@@ -1,6 +1,6 @@
 import requests
 from flask import Flask, render_template, request, jsonify, flash
-from src.WeatherDay import WeatherDay
+from src.weather_day import WeatherDay
 from src.weather_api import get_weather_forecast, get_icon_url
 
 app = Flask(__name__)

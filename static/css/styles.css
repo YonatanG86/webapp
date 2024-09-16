@@ -31,6 +31,12 @@ h1 {
     margin-bottom: 20px;
 }
 
+h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
 /* Form Styling */
 form {
     margin: 20px 0;
@@ -123,6 +129,7 @@ button:hover {
 /* Weather Information Styling */
 .weather-data {
     margin-top: 30px;
+    padding-top: 10px;
     width: 100%; /* Full width for the weather data container */
     overflow-x: auto; /* Enable horizontal scrolling if necessary */
 }
